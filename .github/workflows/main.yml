@@ -20,5 +20,4 @@ jobs:
         workload_identity_provider: "projects/container-453116/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
         service_account: "practice@container-453116.iam.gserviceaccount.com"
 
-    - name: List GCS buckets
-      run: gcloud storage buckets list
+    
