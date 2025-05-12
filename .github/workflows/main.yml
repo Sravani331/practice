@@ -21,10 +21,14 @@ jobs:
     - name: Authenticate with Google Cloud
       uses: google-github-actions/auth@v2
       with:
+
         token_format: "id_token"
-        id_token_audience: 'https://google.cloud'
-        workload_identity_provider: "projects/967978322790/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
+        id_token_audience: "https://google.cloud" 
+        workload_identity_provider: "container/container-453116/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
         service_account: "practice@container-453116.iam.gserviceaccount.com"
+
+    - name: Print ID token (Debug)
+      run: echo "ID Token: ${{ steps.auth.outputs.id_token }}"
 
 
 
