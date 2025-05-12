@@ -12,13 +12,20 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      
+    - name: Verify gcloud setup
+      run: |
+        gcloud --version
+        gcloud auth list
 
     - name: Authenticate with Google Cloud
       uses: google-github-actions/auth@v2
       with:
         token_format: "id_token"
-        id_token_audience: 'https://iam.googleapis.com/'
-        workload_identity_provider: "container/container-453116/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
+        id_token_audience: 'https://google.cloud'
+        workload_identity_provider: "projects/967978322790/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
         service_account: "practice@container-453116.iam.gserviceaccount.com"
+
+
 
     
