@@ -17,8 +17,7 @@ jobs:
       uses: google-github-actions/auth@v2
       with:
         token_format: "id_token"
-        id_token_audience: 'https://google.cloud'
-        workload_identity_provider: "container/container-453116/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+        workload_identity_provider: "container/container-453116/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
         service_account: "practice@container-453116.iam.gserviceaccount.com"
 
     
