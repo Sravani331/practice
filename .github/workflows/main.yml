@@ -1,26 +1,27 @@
-name: GCP Auth via WIF
-
-on: [push]
+name: Deploy to GCP
+on:
+  push:
+    branches: [ main ]
 
 jobs:
-  auth:
+  deploy:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write   
+      id-token: write
       contents: read
-
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Authenticate with Google Cloud
+    - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:
+        token_format: 'id_token'
+        workload_identity_provider: "projects/573882834568/locations/global/workloadIdentityPools/springboot-pool/providers/github"
+        service_account: "springboot@springbootjava-459610.iam.gserviceaccount.com"
 
-        token_format: "id_token"
-        id_token_audience: "https://google.cloud" 
-        workload_identity_provider: "container/container-453116/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
-        service_account: "practice@container-453116.iam.gserviceaccount.com"
+    
+
 
 
 
