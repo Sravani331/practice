@@ -1,0 +1,24 @@
+name: GCP Auth via WIF
+
+on: [push]
+
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   
+      contents: read
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Authenticate with Google Cloud
+      uses: google-github-actions/auth@v2
+      with:
+        token_format: "id_token"
+        workload_identity_provider: "projects/container-453116/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
+        service_account: "practice@container-453116.iam.gserviceaccount.com"
+
+    - name: List GCS buckets
+      run: gcloud storage buckets list
