@@ -16,7 +16,7 @@ jobs:
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:
-        token_format: 'id_token'
+        token_format: "id_token"
         workload_identity_provider: "projects/573882834568/locations/global/workloadIdentityPools/springboot-pool/providers/github-spring-provider"
         service_account: "springboot@springbootjava-459610.iam.gserviceaccount.com"
 
