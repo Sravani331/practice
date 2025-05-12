@@ -17,9 +17,10 @@ jobs:
       uses: google-github-actions/auth@v2
       with:
         token_format: "id_token"
+        id_token_audience: "https://github.com/Sravani331/practice"
         workload_identity_provider: "projects/573882834568/locations/global/workloadIdentityPools/springboot-pool/providers/github-spring-provider"
         service_account: "springboot@springbootjava-459610.iam.gserviceaccount.com"
-        audience: "https://github.com/Sravani331/practice"
+      
 
     
 
