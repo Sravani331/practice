@@ -12,11 +12,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-      
-    - name: Verify gcloud setup
-      run: |
-        gcloud --version
-        gcloud auth list
 
     - name: Authenticate with Google Cloud
       uses: google-github-actions/auth@v2
@@ -27,8 +22,6 @@ jobs:
         workload_identity_provider: "container/container-453116/locations/global/workloadIdentityPools/practice-pool/providers/github-provider"
         service_account: "practice@container-453116.iam.gserviceaccount.com"
 
-    - name: Print ID token (Debug)
-      run: echo "ID Token: ${{ steps.auth.outputs.id_token }}"
 
 
 
